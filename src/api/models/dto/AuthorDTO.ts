@@ -1,5 +1,5 @@
 import { IsNotEmpty } from 'class-validator';
-import { Exclude, Expose } from 'routing-controllers/node_modules/class-transformer';
+import { Exclude, Expose } from 'class-transformer';
 
 @Exclude()
 export class AuthorDTO {

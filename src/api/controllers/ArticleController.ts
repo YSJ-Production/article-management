@@ -2,7 +2,7 @@ import {
     Authorized, Body, Delete, Get, JsonController, OnUndefined, Param, Post, Put, QueryParam, Req,
     UploadedFiles
 } from 'routing-controllers';
-import { plainToClass } from 'routing-controllers/node_modules/class-transformer';
+import { plainToClass } from 'class-transformer';
 import { parse, SearchParserResult } from 'search-query-parser';
 import { ObjectLiteral } from 'typeorm';
 

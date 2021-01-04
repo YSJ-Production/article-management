@@ -12,7 +12,7 @@ export class CreateStewart implements Seeder {
 
         const user = new Editor();
         user.id = uuid.v1();
-        user.email = 'stewart@twistedcore.co.uk';
+        user.email = 'production@ysjournal.com';
         user.name = 'Stewart McGown';
         user.level = Levels.ADMIN;
         user.subjects = 'Computer Science';

@@ -1,5 +1,5 @@
 import { IsEmail, IsNotEmpty } from 'class-validator';
-import { Exclude } from 'routing-controllers/node_modules/class-transformer';
+import { Exclude } from 'class-transformer';
 import { Field } from 'type-graphql';
 import { Column, Unique } from 'typeorm';
 

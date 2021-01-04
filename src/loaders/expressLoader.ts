@@ -18,7 +18,7 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
          */
         const expressApp: Application = createExpressServer({
             cors: {
-                origin: (origin, callback) => env.app.cors.split(',').includes(origin) ? callback(null, true) : callback(new Error('Domain not authorised.')),
+                origin: (origin, callback) => callback(null, true),
                 credentials: true,
             },
             classTransformer: true,

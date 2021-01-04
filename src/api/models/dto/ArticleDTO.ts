@@ -1,5 +1,5 @@
 import { IsNotEmpty, ValidateNested } from 'class-validator';
-import { Exclude, Expose, Type } from 'routing-controllers/node_modules/class-transformer';
+import { Exclude, Expose, Type } from 'class-transformer';
 
 import { IsNonPrimitiveArray } from '../../../decorators/Validate';
 import * as Enums from '../enums';

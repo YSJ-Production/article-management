@@ -1,7 +1,7 @@
 import { validateSync } from 'class-validator';
 import consola from 'consola';
 import { attemptUpdate } from 'protected-ts';
-import { plainToClass } from 'routing-controllers/node_modules/class-transformer';
+import { plainToClass } from 'class-transformer';
 import { Service } from 'typedi';
 import { OrmRepository } from 'typeorm-typedi-extensions';
 import uuid from 'uuid';
@@ -18,7 +18,7 @@ import { ArticlePublishResponse } from '../controllers/responses/ArticlePublishR
 import { Article } from '../models/Article';
 import { Author } from '../models/Author';
 import { ArticleDTO } from '../models/dto/ArticleDTO';
-import { AuthorDTO } from '../models/dto/AuthorDTO';
+//import { AuthorDTO } from '../models/dto/AuthorDTO';
 import { Editor } from '../models/Editor';
 import { User } from '../models/User';
 import { ArticleRepository } from '../repositories/ArticleRepository';
@@ -70,12 +70,12 @@ export class ArticleService {
         validateArticleFiles(file, photos);
 
         // DTO -> Class
-        articleDto.authors = plainToClass<Author, AuthorDTO[]>(Author, articleDto.authors);
+        articleDto.authors = articleDto.authors.map( usr => plainToClass(Author, usr));
 
         const findAuthorOrAuthor = async (author) => ((await this.authorService.findByEmail(author.email)) || author);
         articleDto.authors = await Promise.all(articleDto.authors.map(author => findAuthorOrAuthor(author)));
 
-        const article = plainToClass<Article, ArticleDTO>(Article, articleDto);
+        const article = plainToClass(Article, articleDto);
 
         this.log.info('Create a new article => ', article.toString());
 
